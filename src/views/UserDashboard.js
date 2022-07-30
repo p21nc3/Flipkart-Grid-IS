@@ -6,19 +6,23 @@ import Register from '../components/Register'
 const userStats = [
     {
         count: 28,
-        heading: "Percent of Pull Requests being merged"
+        heading: "% of merged PR"
     },
     {
       count: 2,
-      heading: "Total Stars of Repositories"
+      heading: "Total Stars"
   },
     {
         count: 4,
-        heading: "Total forks of Repositories"
+        heading: "Total forks"
+    },
+    {
+        count: 0,
+        heading: "No. of Orgs"
     },
     {
         count: 5,
-        heading: "Frequency of Commits (per month)"
+        heading: "Commit Freq/month"
     }
 ]
 export default function UserDashboard() {
