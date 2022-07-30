@@ -5,24 +5,20 @@ import Register from '../components/Register'
 // Change here
 const userStats = [
     {
-        count: 22,
-        heading: "Mean"
+        count: 28,
+        heading: "Percent of Pull Requests being merged"
     },
     {
-      count: 22,
-      heading: "Mean"
+      count: 2,
+      heading: "Total Stars of Repositories"
   },
     {
-        count: 23,
-        heading: "Median"
+        count: 4,
+        heading: "Total forks of Repositories"
     },
     {
-        count: 23,
-        heading: "Median"
-    },
-    {
-        count: 24,
-        heading: "Mode"
+        count: 5,
+        heading: "Frequency of Commits (per month)"
     }
 ]
 export default function UserDashboard() {
