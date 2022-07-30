@@ -39,7 +39,7 @@ export default function UserDashboard() {
     <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
       <div class="w-full sm:p-4 px-4 mb-6">
         <h1 class="title-font font-medium text-xl mb-2 text-gray-900">There is <span className="text-orange-400"> 82% </span>chance that that user is <span className="text-red-400"> Malicious </span> </h1>
-        <div class="leading-relaxed">After analysing the parameters of GitHub profile of the user and correlating with the critical values, our Machine Learning models predits that the following user is <b> malicious </b> 
+        <div class="leading-relaxed">After analysing the parameters of GitHub profile of the user and correlating with the critical values, our <b> Machine Learning models </b> predits that the following user is <b> malicious </b> 
       and can possibly cause threat. The following graph depicts a clustering model segregating the malicious commits from the non-malicious ones.
       </div>
       </div>
