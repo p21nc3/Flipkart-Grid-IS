@@ -29,7 +29,7 @@ export default function UserDashboard() {
   const [show, setShow] = React.useState(true);
   if(show){
     return(
-      <Register lift={setShow} kind={"repo"}/>
+      <Register lift={setShow} kind={"user"}/>
     )
   }
   return (

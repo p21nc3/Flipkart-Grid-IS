@@ -64,7 +64,7 @@ function classNames(...classes) {
 
 export default function RepositoryAnalyzer() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true)
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   if(show){
     return(
       <Register lift={setShow} kind={"repo"}/>

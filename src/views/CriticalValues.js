@@ -1,11 +1,13 @@
 import React from "react";
 import TextField from "../components/TextField";
-
+import { useNavigate } from "react-router-dom"
 const parameters = ["Percent of merged pull requests", "Total stars of repositories", "Total forks of repositories "," Number of Organisations", "Commit frequency per month"];
 
 export default function CriticalValues() {
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
+    navigate("/user-analyser")
   }
   return (
     <div>

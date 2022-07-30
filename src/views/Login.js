@@ -5,7 +5,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     const redirectHander = () => {
-        navigate("/analyzer");
+        navigate("/user-analyser");
     }
   return (
     <div>
