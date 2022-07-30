@@ -10,10 +10,14 @@ It also allows you to scan,prioritize and analyze security vulnerabilities in yo
 This prevents hackers from getting access to your source code and leaking or manipulating your data.We use state-of-the-art Machine Learning algorithms to keep malicious users away from contributing to your project. <br><br>
 With SafeKart, you can rest assured that your open source project will only be collaborated and reviewed by trusted peers from around the world. 
 <br>
+<ul>
+<li><a target="_blank" href="https://drive.google.com/file/d/1T9BEOfKz6PE8Y1OoW3n2KlqqjSYPr3up/view?usp=sharing" >Click Here</a> to see demo video.</li>
+</ul>
 <br>
-![image](https://user-images.githubusercontent.com/79566726/181994880-6be95ba9-75a0-473a-8b19-0cab5d50a6e0.png)
-<h2>Details:</h2>
 
+![image](https://user-images.githubusercontent.com/79566726/181994880-6be95ba9-75a0-473a-8b19-0cab5d50a6e0.png)
+
+<h2>Details:</h2>
 Developed by: Team IdeaKart <br>
 Members : <br>
 <ul>
