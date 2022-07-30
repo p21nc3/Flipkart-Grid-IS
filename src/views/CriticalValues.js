@@ -4,6 +4,9 @@ import TextField from "../components/TextField";
 const parameters = ["Mean", "Median", "Mode", "Range"];
 
 export default function CriticalValues() {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  }
   return (
     <div>
       <div class="bg-white py-6 sm:py-8 lg:py-12">
@@ -21,7 +24,7 @@ export default function CriticalValues() {
             </p>
           </div>
 
-          <form class="max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto">
+          <form class="max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto" onSubmit={submitHandler}>
             {parameters.map((el, idx) => (
               <TextField key={idx} parameter={el} />
             ))}
