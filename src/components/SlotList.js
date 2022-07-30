@@ -9,46 +9,51 @@ const people = [
       email: "VULNERABILITY",
       image:
         "https://i.imgur.com/eN1KBk7.jpeg",
+      color: "red"
     },
     {
-      name: "org.springframework:spring-beans Remote Code Execution",
-      title: "Remote Code Execution",
+      name: "org.springframework:spring-beans cross site scripting",
+      title: "Cross-site Scripting (XSS)",
     //   department: "Optimization",
-      role: "932",
+      role: "810",
       severity: "Critical",
       email: "VULNERABILITY",
       image:
         "https://i.imgur.com/eN1KBk7.jpeg",
+        color: "red"
     },
     {
-      name: "org.springframework:spring-beans Remote Code Execution",
-      title: "Remote Code Execution",
+      name: "org.springframework:spring-beans Cross Site Forgery",
+      title: "Cross-Site Request Forgery (CSRF)",
     //   department: "Optimization",
-      role: "233",
+      role: "760",
       severity: "Moderate",
       email: "VULNERABILITY",
       image:
         "https://i.imgur.com/9OPnZNk.png",
+        color: "orange"
   },
   {
-    name: "org.springframework:spring-beans Remote Code Execution",
-    title: "Remote Code Execution",
+    name: "org.springframework:spring-beans Without 'Secure'",
+    title: "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
   //   department: "Optimization",
-    role: "233",
+    role: "560",
     severity: "Moderate",
     email: "VULNERABILITY",
     image:
       "https://i.imgur.com/9OPnZNk.png",
+      color: "orange"
 },
 {
-  name: "org.springframework:spring-beans Remote Code Execution",
-  title: "Remote Code Execution",
+  name: "org.springframework:spring-beans Improper Neutralization",
+  title: "Improper Neutralization of CRLF Sequences in HTTP Headers",
 //   department: "Optimization",
-  role: "120",
+  role: "510",
   severity: "Low",
   email: "VULNERABILITY",
   image:
     "https://i.imgur.com/RuopxmJ.png",
+    color: "yellow"
 },
 
   ];
@@ -133,7 +138,7 @@ const people = [
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-black-800">
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-gray-600">
+                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-${person.color}-300 text-${person.color}-600`}>
                           {person.role}
                         </span>
                       </td>

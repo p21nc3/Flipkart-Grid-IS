@@ -12,7 +12,7 @@ export default function Hero() {
                 Very proud to introduce
               </p> */}
 
-              <h1 class="text-black-800 text-4xl sm:text-5xl md:text-6xl font-bold mb-8 md:mb-12">
+              <h1 class="text-black-800 text-5xl font-bold mb-8 md:mb-12">
                 Revolutionary Solution to Information Security
               </h1>
 
@@ -34,7 +34,7 @@ export default function Hero() {
 
             <div class="xl:w-5/12 h-48 lg:h-auto bg-gray-100 overflow-hidden shadow-lg rounded-lg">
               <img
-                src="https://images.unsplash.com/photo-1618004912476-29818d81ae2e?auto=format&q=75&fit=crop&w=1000"
+                src="https://corporate.thermofisher.com/content/tfcorpsite/us/en/index/about/information-security/_jcr_content/root/container_1354577442/container_2140750867/textimage_copy.coreimg.png/1646769851818/reporting-information-security.png"
                 loading="lazy"
                 alt="Photo by Fakurian Design"
                 class="w-full h-full object-cover object-center"

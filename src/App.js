@@ -15,10 +15,7 @@ import Hero from "./views/Hero";
 import CriticalValues from "./views/CriticalValues";
 
 function App() {
-  const [sw, setSw] = React.useState(false);
-  const clickHandler = () => {
-    setSw(!sw)
-  }
+  // const [loggedIn, setLoggedIn] = React.useState(false);
   return (
     <>
     <Navbar />

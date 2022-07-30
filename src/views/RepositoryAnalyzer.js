@@ -177,7 +177,7 @@ export default function RepositoryAnalyzer() {
           <div className="relative z-10 flex items-baseline justify-between pt-8 pb-6 border-b border-gray-200">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
             <img className="h-10 w-10 rounded-full inline mr-5" src = "https://avatars.githubusercontent.com/u/65858601?v=4"/>
-            Repository Details of Arcane Fanclub 
+            Repository Details of Car Parking Backend 
             <br />
             <span className="text-xl font-bold text-center tracking-tight text-gray-600">
               This Repository Scores 

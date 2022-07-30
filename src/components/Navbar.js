@@ -27,8 +27,8 @@ export default function Navbar() {
             <a href="#" className="mr-5 hover:text-gray-900">
                 
             </a>
-            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/user-analyser">Malicious User Analyzer</Link></a>
-            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/repo-analyser">Malicious Repository Analyzer</Link></a>
+            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/user-analyser">User</Link></a>
+            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/repo-analyser">Repository Scanner</Link></a>
             <a href="#" className="mr-5 hover:text-gray-900"><Link to="/critical-values">Critical Values</Link></a>
             <a href="#" className="mr-5 hover:text-gray-900"><Link to="/login">Login</Link></a>
           </nav>
