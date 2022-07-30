@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "../components/TextField";
 
-const parameters = ["Mean", "Median", "Mode", "Range"];
+const parameters = ["Percent of merged pull requests", "Total stars of repositories", "Total forks of repositories "," Number of Organisations", "Commit frequency per month"];
 
 export default function CriticalValues() {
   const submitHandler = (e) => {
