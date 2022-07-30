@@ -64,7 +64,7 @@ function classNames(...classes) {
 
 export default function RepositoryAnalyzer() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true)
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   if(show){
     return(
       <Register lift={setShow} kind={"repo"}/>
@@ -307,7 +307,7 @@ export default function RepositoryAnalyzer() {
                     )}
                   </Disclosure>
                 ))}
-                <h2 className="mt-3 font-semibold">Range</h2>
+                <h2 className="mt-3 font-semibold">Priority Score</h2>
                 <input
                 type="range"
                 name="first-name"

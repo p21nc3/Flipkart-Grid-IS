@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -7,18 +8,16 @@ export default function Hero() {
         <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <section class="flex flex-col lg:flex-row justify-between gap-6 sm:gap-10 md:gap-16">
             <div class="xl:w-5/12 flex flex-col justify-center sm:text-center lg:text-left lg:py-12 xl:py-24">
-              <p class="text-indigo-500 md:text-lg xl:text-xl font-semibold mb-4 md:mb-6">
+              {/* <p class="text-indigo-500 md:text-lg xl:text-xl font-semibold mb-4 md:mb-6">
                 Very proud to introduce
-              </p>
+              </p> */}
 
               <h1 class="text-black-800 text-4xl sm:text-5xl md:text-6xl font-bold mb-8 md:mb-12">
-                Revolutionary way to build the web
+                Revolutionary Solution to Information Security
               </h1>
 
               <p class="lg:w-4/5 text-gray-500 xl:text-lg leading-relaxed mb-8 md:mb-12">
-                This is a section of some simple filler text, also known as
-                placeholder text. It shares some characteristics of a real
-                written text but is random.
+              SafeKart is a platform allowing you to verify potential collaborators for your project - classifying them as malicious or trustworthy.
               </p>
 
               <div class="flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-2.5">
@@ -26,14 +25,9 @@ export default function Hero() {
                   href="#"
                   class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
                 >
-                  Start now
-                </a>
-
-                <a
-                  href="#"
-                  class="inline-block bg-gray-200 hover:bg-gray-300 focus-visible:ring ring-indigo-300 text-gray-500 active:text-gray-700 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
-                >
-                  Take tour
+                  <Link to="/login">
+                  Login now to get started
+                  </Link>
                 </a>
               </div>
             </div>

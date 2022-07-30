@@ -11,14 +11,14 @@ const people = [
         "https://i.imgur.com/eN1KBk7.jpeg",
     },
     {
-        name: "org.springframework:spring-beans Remote Code Execution",
-        title: "Remote Code Execution",
-      //   department: "Optimization",
-        role: "233",
-        severity: "Moderate",
-        email: "VULNERABILITY",
-        image:
-          "https://i.imgur.com/9OPnZNk.png",
+      name: "org.springframework:spring-beans Remote Code Execution",
+      title: "Remote Code Execution",
+    //   department: "Optimization",
+      role: "932",
+      severity: "Critical",
+      email: "VULNERABILITY",
+      image:
+        "https://i.imgur.com/eN1KBk7.jpeg",
     },
     {
       name: "org.springframework:spring-beans Remote Code Execution",
@@ -44,41 +44,11 @@ const people = [
   name: "org.springframework:spring-beans Remote Code Execution",
   title: "Remote Code Execution",
 //   department: "Optimization",
-  role: "233",
-  severity: "Moderate",
+  role: "120",
+  severity: "Low",
   email: "VULNERABILITY",
   image:
-    "https://i.imgur.com/9OPnZNk.png",
-},
-{
-  name: "org.springframework:spring-beans Remote Code Execution",
-  title: "Remote Code Execution",
-//   department: "Optimization",
-  role: "233",
-  severity: "Moderate",
-  email: "VULNERABILITY",
-  image:
-    "https://i.imgur.com/9OPnZNk.png",
-},
-{
-  name: "org.springframework:spring-beans Remote Code Execution",
-  title: "Remote Code Execution",
-//   department: "Optimization",
-  role: "233",
-  severity: "Moderate",
-  email: "VULNERABILITY",
-  image:
-    "https://i.imgur.com/9OPnZNk.png",
-},
-{
-  name: "org.springframework:spring-beans Remote Code Execution",
-  title: "Remote Code Execution",
-//   department: "Optimization",
-  role: "233",
-  severity: "Moderate",
-  email: "VULNERABILITY",
-  image:
-    "https://i.imgur.com/9OPnZNk.png",
+    "https://i.imgur.com/RuopxmJ.png",
 },
 
   ];

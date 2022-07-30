@@ -24,7 +24,7 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/repo-analyser" element={<RepositoryAnalyzer />} />
-      <Route path="/user-dashboard" element={<UserDashboard />} />
+      <Route path="/user-analyser" element={<UserDashboard />} />
       <Route path="/login" element={<Login />} />
       <Route path="/critical-values" element={<CriticalValues />} />
       <Route path="/" element={<Hero />} />
@@ -37,8 +37,7 @@ export default App;
 
 
 /**
- * Better than the critical values set by you, which can be set by the user -> make a page
- * Slider
- * Make the filters work
- * Integrate
+ * Fix Login Page
+ * Change props
+ * Landing page abhi 
  */

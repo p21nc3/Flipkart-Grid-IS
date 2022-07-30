@@ -9,6 +9,10 @@ const userStats = [
         heading: "Mean"
     },
     {
+      count: 22,
+      heading: "Mean"
+  },
+    {
         count: 23,
         heading: "Median"
     },
@@ -34,7 +38,7 @@ export default function UserDashboard() {
   <div class="container px-5 py-24 mx-auto flex flex-wrap">
     <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
       <div class="w-full sm:p-4 px-4 mb-6">
-        <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Moon hashtag pop-up try-hard offal truffaut</h1>
+        <h1 class="title-font font-medium text-xl mb-2 text-gray-900">There is <span className="text-orange-400"> 82% </span>chance that that user is <span className="text-red-400"> Malicious </span> </h1>
         <div class="leading-relaxed">Pour-over craft beer pug drinking vinegar live-edge gastropub, keytar neutra sustainable fingerstache kickstarter.</div>
       </div>
       {

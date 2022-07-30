@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "../components/TextField";
 
 const parameters = ["Mean", "Median", "Mode", "Range"];
+
 export default function CriticalValues() {
   return (
     <div>
@@ -13,9 +14,10 @@ export default function CriticalValues() {
             </h2>
 
             <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text but is random or otherwise generated.
+              Only if each parameter of the profile exceeds the critical value
+              and the aggregate value surpasses a threshold, we declare the user
+              as trustworthy. Else, we give a % chance of the user being
+              malicious (on the basis of our ML algorithm on the parameters)
             </p>
           </div>
 
@@ -23,7 +25,7 @@ export default function CriticalValues() {
             {parameters.map((el, idx) => (
               <TextField key={idx} parameter={el} />
             ))}
-            <button style={{outline: "none", padding:"0px"}}>
+            <button style={{ outline: "none", padding: "0px" }}>
               <a className="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
                 Submit Values
               </a>
