@@ -11,7 +11,8 @@ This prevents hackers from getting access to your source code and leaking or man
 With SafeKart, you can rest assured that your open source project will only be collaborated and reviewed by trusted peers from around the world. 
 <br>
 <ul>
-<li><a target="_blank" href="https://drive.google.com/file/d/1T9BEOfKz6PE8Y1OoW3n2KlqqjSYPr3up/view?usp=sharing" >Click Here</a> to see demo video.</li>
+<li><a target="_blank" href="https://drive.google.com/file/d/1T9BEOfKz6PE8Y1OoW3n2KlqqjSYPr3up/view?usp=sharing" >Click Here</a> to watch demo video.</li>
+<li><a target="_blank" href="https://safekart-docs.netlify.app/" >Click Here</a> to read documentation.</li>
 </ul>
 <br>
 
