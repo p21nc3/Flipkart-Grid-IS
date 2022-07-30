@@ -26,6 +26,7 @@ export default function Login() {
                 </label>
                 <input
                   name="email"
+                  required
                   class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                 />
               </div>
@@ -39,6 +40,8 @@ export default function Login() {
                 </label>
                 <input
                   name="password"
+type="password"
+                    required
                   class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                 />
               </div>
@@ -46,13 +49,6 @@ export default function Login() {
               <button class="block bg-gray-800 hover:bg-gray-700 active:bg-gray-600 focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
                 Log in
               </button>
-
-              {/* <div class="flex justify-center items-center relative">
-                <span class="h-px bg-gray-300 absolute inset-x-0"></span>
-                <span class="bg-white text-gray-400 text-sm relative px-4">
-                  Log in with social
-                </span>
-              </div> */}
 
               <button class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3">
                 <svg
