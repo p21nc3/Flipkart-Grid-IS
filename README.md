@@ -11,3 +11,13 @@ This prevents hackers from getting access to your source code and leaking or man
 With SafeKart, you can rest assured that your open source project will only be collaborated and reviewed by trusted peers from around the world. 
 <br>
 <br>
+<h2>Details:</h2>
+
+Developed by: Team IdeaKart <br>
+Members : <br>
+<ul>
+<li><a target="_blank" href="https://github.com/Ashish-AVS" >Ashish AVS</a> </li>
+<li><a target="_blank" href="https://github.com/sarveshlanke" >Sarvesh Lanke</a> </li>
+<li><a target="_blank" href="https://github.com/Sanchit611" >Sanchit Narang</a> </li>
+
+</ul>
