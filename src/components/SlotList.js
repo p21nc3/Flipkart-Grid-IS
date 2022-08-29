@@ -1,57 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
-const people = [
-    {
-      name: "org.springframework:spring-beans Remote Code Execution",
-      title: "Remote Code Execution",
-      role: "932",
-      severity: "Critical",
-      email: "VULNERABILITY",
-      image:
-        "https://i.imgur.com/eN1KBk7.jpeg",
-      color: "red"
-    },
-    {
-      name: "org.springframework:spring-beans cross site scripting",
-      title: "Cross-site Scripting (XSS)",
-      role: "810",
-      severity: "Critical",
-      email: "VULNERABILITY",
-      image:
-        "https://i.imgur.com/eN1KBk7.jpeg",
-        color: "red"
-    },
-    {
-      name: "org.springframework:spring-beans Cross Site Forgery",
-      title: "Cross-Site Request Forgery (CSRF)",
-      role: "760",
-      severity: "Moderate",
-      email: "VULNERABILITY",
-      image:
-        "https://i.imgur.com/9OPnZNk.png",
-        color: "orange"
-  },
-  {
-    name: "org.springframework:spring-beans Without 'Secure'",
-    title: "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
-    role: "560",
-    severity: "Moderate",
-    email: "VULNERABILITY",
-    image:
-      "https://i.imgur.com/9OPnZNk.png",
-      color: "orange"
-},
-{
-  name: "org.springframework:spring-beans Improper Neutralization",
-  title: "Improper Neutralization of CRLF Sequences in HTTP Headers",
-  role: "510",
-  severity: "Low",
-  email: "VULNERABILITY",
-  image:"https://i.imgur.com/RuopxmJ.png",
-  color: "yellow"
-},
-
-  ];
   
   const extractRecord = (data) => {
     let final = [];
@@ -100,7 +48,10 @@ const people = [
     else if(severity === 'medium'){
       finalColor = 'yellow'
       imgURL = 'https://i.imgur.com/9OPnZNk.png'
-  
+    }
+    else if(severity === 'high'){
+      finalColor = 'orange'
+      imgURL = 'https://i.imgur.com/HttphJ3.png'
     }
     else{
       finalColor = 'red'
@@ -108,13 +59,15 @@ const people = [
     }
     return {finalColor, imgURL}
   }
-  export default function Example() {
+  export default function Example(props) {
+    const {url} = props;
+    console.log("Hi from SlotList", url)
     const [vul, setVul] = useState([]);
     useEffect(() => {
-      axios.get('https://api.github.com/repos/Ashish-AVS/Car-Parking-Backend/code-scanning/alerts', {
+      axios.get(url, {
         headers: {
           'Accept': 'application vnd.github+json',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer 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'
         }
       }).then(function (response) {
         // handle success
