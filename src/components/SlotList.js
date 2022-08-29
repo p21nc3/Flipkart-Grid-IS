@@ -13,21 +13,22 @@ import axios from 'axios'
         severity: "",
         email: "",
         image: "",
-        color: ""
+        color: "",
+        tags:[]
     }
     
     if(item.rule.security_severity_level === 'low'){
       responseData.role = 90;
-      score+=90;
-      cnt++;
+      score+=90*1.5;
+      cnt+=1.5;
     }
     else if(item.rule.security_severity_level === 'medium'){
       responseData.role = 70;
-      score+=70;cnt++;
+      score+=70*1.3;cnt+=1.3;
     }
     else{
       responseData.role = 30;
-      score+=30;cnt++;
+      score+=30*1.1;cnt+=1.1;
     }
             responseData.id = item.number;
             responseData.title = item.rule.name;
@@ -37,6 +38,7 @@ import axios from 'axios'
             responseData.email = "";
             responseData.image = "" // To be done later
             responseData.color = "" // Later
+            responseData.tags = [...item.rule.tags]
             final.push(responseData)
         })
         if(cnt) 
@@ -74,7 +76,7 @@ import axios from 'axios'
       axios.get(url, {
         headers: {
           'Accept': 'application vnd.github+json',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer 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'
         }
       }).then(function (response) {
         // handle success
@@ -128,7 +130,7 @@ import axios from 'axios'
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Action
+                      Tags
                     </th>
                     <th scope="col" className="relative px-6 py-3">
                       <span className="sr-only">Edit</span>
@@ -175,13 +177,12 @@ import axios from 'axios'
                           {person.role}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          href="#"
-                          className="text-indigo-600 hover:text-indigo-900"
-                        >
-                          Ignore
-                        </a>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-black-800">
+                        {person.tags.map(tag => (
+                          <div className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-${person.color}-300 text-${person.color}-600`}>
+                            {tag}
+                          </div>
+                        ))}
                       </td>
                     </tr>
                   ))}
