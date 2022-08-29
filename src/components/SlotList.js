@@ -3,7 +3,8 @@ import axios from 'axios'
   
   const extractRecord = (data) => {
     let final = [];
-    
+    let score=0;
+    let cnt=0;
     data.map((item, idx) => {
       let responseData = {
         name:"",
@@ -14,15 +15,19 @@ import axios from 'axios'
         image: "",
         color: ""
     }
-    let score;
+    
     if(item.rule.security_severity_level === 'low'){
       responseData.role = 90;
+      score+=90;
+      cnt++;
     }
     else if(item.rule.security_severity_level === 'medium'){
       responseData.role = 70;
+      score+=70;cnt++;
     }
     else{
       responseData.role = 30;
+      score+=30;cnt++;
     }
             responseData.id = item.number;
             responseData.title = item.rule.name;
@@ -34,7 +39,9 @@ import axios from 'axios'
             responseData.color = "" // Later
             final.push(responseData)
         })
-   return final
+        if(cnt) 
+          score=score/cnt;
+   return [final, score]
   }
 
   const extractColor = (severity) => {
@@ -60,18 +67,20 @@ import axios from 'axios'
     return {finalColor, imgURL}
   }
   export default function Example(props) {
-    const {url} = props;
+    const {url, setScore} = props;
     console.log("Hi from SlotList", url)
     const [vul, setVul] = useState([]);
     useEffect(() => {
       axios.get(url, {
         headers: {
           'Accept': 'application vnd.github+json',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer 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'
         }
       }).then(function (response) {
         // handle success
-        setVul(extractRecord(response.data));
+        const f = extractRecord(response.data)
+        setScore(f[1])
+        setVul(f[0]);
         console.log(response.data);
       })
       .catch(function (error) {

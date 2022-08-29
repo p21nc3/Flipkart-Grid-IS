@@ -208,7 +208,7 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
             <br />
             <span className="text-xl font-bold text-center tracking-tight text-gray-600">
               This Repository Scores 
-                <span className="text-orange-400"> 68 </span>
+                <span className="text-orange-400"> {score} </span>
                 out of 
                <span className="text-green-400" > 100 </span>
               </span>
@@ -346,7 +346,7 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
               <div className="lg:col-span-3">
                 {/* Replace with your content */}
                 <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full" >
-                <SlotList url={url}/>
+                <SlotList url={url} setScore={setScore}/>
             
                 </div>
                 {/* /End replace */}
