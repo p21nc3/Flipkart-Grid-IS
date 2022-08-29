@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Auth0Login from '../components/Auth0/Auth0Login'
 export default function Hero() {
   return (
     <>
@@ -18,6 +18,7 @@ export default function Hero() {
 
               <p class="lg:w-4/5 text-gray-500 xl:text-lg leading-relaxed mb-8 md:mb-12">
               SafeKart is a platform allowing you to verify potential collaborators for your project - classifying them as malicious or trustworthy.
+
               </p>
 
               <div class="flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-2.5">
@@ -25,9 +26,7 @@ export default function Hero() {
                   href="#"
                   class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
                 >
-                  <Link to="/login">
-                  Login now to get started
-                  </Link>
+                  <Auth0Login />
                 </a>
               </div>
             </div>

@@ -1,19 +1,3 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import React from 'react'
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
@@ -27,13 +11,7 @@ const sortOptions = [
   { name: 'Highest Severity', href: '#', current: false },
   { name: 'Lowest Severity', href: '#', current: false },
 ]
-const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
-]
+
 const filters = [
   {
     id: 'severity',
@@ -62,13 +40,52 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function RepositoryAnalyzer() {
+export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-network/GUI-miner"}) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true)
+  const [score, setScore] = useState(100);
   const [show, setShow] = useState(true);
   if(show){
     return(
       <Register lift={setShow} kind={"repo"}/>
     )
+  }
+
+  const getSrc = (str) => {
+    let slashes = 0;
+    let startIndex=-1;
+    let endIndex=-1;
+    for(let i=0; i<str.length; i++){
+      let ch = str[i];
+      if(ch === '/') slashes++;
+      if(slashes === 3 && startIndex===-1){
+        startIndex = i;
+      }
+      if(slashes === 4 && endIndex===-1){
+        endIndex = i;
+      }
+    }
+    console.log(`${startIndex}, end Index ${endIndex}`);
+    let ans = str.substring(startIndex, endIndex);
+    return `https://github.com${ans}.png`
+  }
+
+  const getName = (str="https://github.com/scala-network/Car-Parking-Backend") => {
+    let slashes = 0;
+    let startIndex=-1;
+    let endIndex=-1;
+    for(let i=0; i<str.length; i++){
+      let ch = str[i];
+      if(ch === '/') slashes++;
+      if(slashes === 3 && startIndex===-1){
+        startIndex = i;
+      }
+      if(slashes === 4 && endIndex===-1){
+        endIndex = i;
+      }
+    }
+    console.log(`${startIndex}, end Index ${endIndex}`);
+    let ans = str.substring(endIndex+1, str.length);
+    return ans;
   }
   return (
     <div className="bg-white">
@@ -176,8 +193,8 @@ export default function RepositoryAnalyzer() {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 flex items-baseline justify-between pt-8 pb-6 border-b border-gray-200">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-            <img className="h-10 w-10 rounded-full inline mr-5" src = "https://avatars.githubusercontent.com/u/65858601?v=4"/>
-            Repository Details of Car Parking Backend 
+            <img className="h-10 w-10 rounded-full inline mr-5" src = {getSrc(repoURL)}/>
+            Repository Details of {getName()}
             <br />
             <span className="text-xl font-bold text-center tracking-tight text-gray-600">
               This Repository Scores 
@@ -319,7 +336,8 @@ export default function RepositoryAnalyzer() {
               <div className="lg:col-span-3">
                 {/* Replace with your content */}
                 <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full" >
-                <SlotList />
+                <SlotList/>
+            
                 </div>
                 {/* /End replace */}
               </div>

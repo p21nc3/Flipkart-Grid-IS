@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import Auth0Login from './Auth0/Auth0Login'
+import Auth0Logout from './Auth0/Auth0Logout'
 
 export default function Navbar() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <div>
       <header className="text-gray-600 body-font mt-1">
@@ -27,10 +32,20 @@ export default function Navbar() {
             <a href="#" className="mr-5 hover:text-gray-900">
                 
             </a>
-            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/user-analyser">User Validator</Link></a>
-            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/repo-analyser">Repository Scanner</Link></a>
-            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/critical-values">Critical Values</Link></a>
-            <a href="#" className="mr-5 hover:text-gray-900"><Link to="/login">Login</Link></a>
+            {
+              isAuthenticated ? (
+                <div>
+                  <a href="#" className="mr-5 hover:text-gray-900"><Link to="/user-analyser">User Validator</Link></a>
+                  <a href="#" className="mr-5 hover:text-gray-900"><Link to="/repo-analyser">Repository Scanner</Link></a>
+                  <a href="#" className="mr-5 hover:text-gray-900"><Link to="/critical-values">Critical Values</Link></a>
+                  <a href="#" className="mr-5 hover:text-gray-900"><Auth0Logout /></a>
+                  
+                  
+                </div>
+              ) : 
+              null
+              // <a href="#" className="mr-5 hover:text-gray-900"><Auth0Login /></a>
+            }
           </nav>
           <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
           

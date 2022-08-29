@@ -4,37 +4,41 @@ import "./App.css";
 import RepositoryAnalyzer from "./views/RepositoryAnalyzer";
 import UserDashboard from "./views/UserDashboard";
 import Register from "./components/Register";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./views/Login";
 import Hero from "./views/Hero";
 import CriticalValues from "./views/CriticalValues";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   // const [loggedIn, setLoggedIn] = React.useState(false);
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <>
-    <Navbar />
-    <Routes>
-      <Route path="/repo-analyser" element={<RepositoryAnalyzer />} />
-      <Route path="/user-analyser" element={<UserDashboard />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/critical-values" element={<CriticalValues />} />
-      <Route path="/" element={<Hero />} />
-      </Routes> 
+      <Navbar />
+     
+        {isAuthenticated ? (
+          <div>
+             <Routes>
+              <Route path="/repo-analyser" element={<RepositoryAnalyzer />} />
+              <Route path="/user-analyser" element={<UserDashboard />} />
+              <Route path="/critical-values" element={<CriticalValues />} />
+            </Routes>
+          </div>
+        ) : (
+         <Routes> <Route path="/login" element={<Login />} /></Routes>
+        )}
+        <Routes><Route path="/" element={<Hero />} /></Routes>
     </>
   );
 }
 
 export default App;
 
-
 /**
  * Fix Login Page
  * Change props
- * Landing page abhi 
+ * Landing page abhi
  */

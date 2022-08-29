@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import Auth0Login from '../components/Auth0/Auth0Login'
 
 export default function Login() {
     const navigate = useNavigate();
@@ -47,7 +48,7 @@ type="password"
               </div>
 
               <button class="block bg-gray-800 hover:bg-gray-700 active:bg-gray-600 focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
-                Log in
+              
               </button>
 
               <button class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3">
