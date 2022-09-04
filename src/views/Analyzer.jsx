@@ -18,7 +18,7 @@ export default function Analyzer({userName}) {
         axios.get(finalURI).then(res => {
             let data = res.data;
             data.map(repo => {
-              averageFrequency+=(repo[1]/data.length) + (repo[2]/data.length);
+              averageFrequency+= Math.round((repo[1]/data.length) + (repo[2]/data.length));
               
             })
             setData(prevState => {
@@ -149,10 +149,10 @@ export default function Analyzer({userName}) {
   <div className="container px-5 py-24 mx-auto flex flex-wrap">
     <div className="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
       <div className="w-full sm:p-4 px-4 mb-6">
-        <h1 className="title-font font-medium text-xl mb-2 text-gray-900">There is <span className="text-orange-400"> 3.014% </span>chance that that user is <span className="text-red-400"> Malicious </span> </h1>
+        {/* <h1 className="title-font font-medium text-xl mb-2 text-gray-900">There is <span className="text-orange-400"> 3.014% </span>chance that that user is <span className="text-red-400"> Malicious </span> </h1> */}
         <h1 className="title-font font-medium text-xl mb-2 text-gray-900">Analysis for {userName}</h1>
         
-        <div className="leading-relaxed">After analysing the parameters of GitHub profile of the user and correlating with the critical values, our <b> Machine Learning models </b> predicts that the following user is <b> malicious </b> 
+        <div className="leading-relaxed">After analysing the parameters of GitHub profile of the user and correlating with the critical values, our <b> Machine Learning models </b> predicts if the following user is <b> malicious/benign </b> 
       and can possibly cause threat. The following graph depicts a clustering model segregating the malicious commits from the non-malicious ones.
       </div>
       </div>
@@ -162,7 +162,7 @@ export default function Analyzer({userName}) {
       }
     </div>
     <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
-      <img className="object-cover object-center w-full h-full" src="/atlantis1.jpeg" alt="stats" />
+      <img className="object-cover object-center" src={`/${userName}.jpeg`} alt="stats" />
     </div>
   </div>
 </section>

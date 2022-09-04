@@ -239,7 +239,7 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
             <br />
             <span className="text-xl font-bold text-center tracking-tight text-gray-600">
               This Repository Scores 
-                <span className="text-orange-400"> {score} </span>
+                <span className="text-orange-400"> {score === 0 ? '100' : score} </span>
                 out of 
                <span className="text-green-400" > 100 </span>
               </span>
@@ -361,9 +361,9 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
                 ))}
                 <h2 className="mt-3 font-semibold">Priority Score</h2>
                 <input
-                type="range"
-                name="first-name"
-                className="w-56 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                  type="range"
+                  name="first-name"
+                  className="w-56 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                 />
               </form>
 

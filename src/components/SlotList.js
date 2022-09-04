@@ -70,7 +70,6 @@ import axios from 'axios'
   }
   export default function Example(props) {
     let {url, setScore} = props;
-    console.log("Hi from SlotList", url)
     const [vul, setVul] = useState([]);
     useEffect(() => {
       axios.get(url, {

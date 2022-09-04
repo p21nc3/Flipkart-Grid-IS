@@ -10,7 +10,6 @@ export default function UserDashboard({username='Ashish-AVS'}) {
 
 
 useEffect( () => {
-
   const func = (userName) => {
     const averageFrequencyPerWeek = async (userName, repoName) => {
       const finalURI = `https://api.github.com/repos/${userName}/${repoName}/stats/code_frequency`
@@ -74,7 +73,6 @@ useEffect( () => {
 
     }
     const pullsForCurrentRepo = (userName, repoName) => {
-      // https://api.github.com/repos/octocat/Hello-World/pulls
       const uri = `https://api.github.com/repos/${userName}/${repoName}/pulls?state=closed`
       axios.get(uri).then(res => {
           setData(prevState => {
@@ -86,7 +84,6 @@ useEffect( () => {
   }
 
   const pullsForCurrentRepoOpen = (userName, repoName) => {
-    // https://api.github.com/repos/octocat/Hello-World/pulls
     const uri = `https://api.github.com/repos/${userName}/${repoName}/pulls?state=open`
     let x = 0;
     axios.get(uri).then(res => {
@@ -147,9 +144,6 @@ useEffect( () => {
     </div>
   </div>
 </section>
-
-
-
     </div>
   )
 }

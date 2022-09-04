@@ -30,7 +30,7 @@ function App() {
             </Routes>
           </div>
         ) : (
-         <Routes> <Route path="/login" element={<Login />} /></Routes>
+         <Routes> <Route path="/login" element={<Login /> } /></Routes>
         )}
         <Routes><Route path="/" element={<Hero />} /></Routes>
     </>
