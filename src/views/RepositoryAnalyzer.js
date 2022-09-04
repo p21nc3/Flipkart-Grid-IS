@@ -43,7 +43,7 @@ function classNames(...classes) {
 export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-network/GUI-miner"}) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true)
   const [score, setScore] = useState(100);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [url, setURL] = useState("");
   if(show){
     return(

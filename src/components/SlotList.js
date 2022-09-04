@@ -76,7 +76,7 @@ import axios from 'axios'
       axios.get(url, {
         headers: {
           'Accept': 'application vnd.github+json',
-          'Authorization': 'Bearer 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'
+          'Authorization': `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`
         }
       }).then(function (response) {
         // handle success
