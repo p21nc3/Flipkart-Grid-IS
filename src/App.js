@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./views/Login";
+import Analyzer from "./views/Analyzer";
 import Hero from "./views/Hero";
 import CriticalValues from "./views/CriticalValues";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -19,9 +20,10 @@ function App() {
     <>
       <Navbar />
      
-        {isAuthenticated ? (
+        {true ? (
           <div>
              <Routes>
+              <Route path="/analyzer" element={<Analyzer />} />
               <Route path="/repo-analyser" element={<RepositoryAnalyzer />} />
               <Route path="/user-analyser" element={<UserDashboard />} />
               <Route path="/critical-values" element={<CriticalValues />} />
@@ -37,8 +39,13 @@ function App() {
 
 export default App;
 
-/**
- * Fix Login Page
- * Change props
- * Landing page abhi
- */
+/*
+
+followers: https://api.github.com/users/Ashish-AVS/followers
+first repo created: https://api.github.com/users/Ashish-AVS/repos, first activity
+last repo created: https://api.github.com/users/Ashish-AVS/repos, last activity
+https://api.github.com/repos/Ashish-AVS/Car-Parking-Backend/stats/code_frequency: Weekly commits into that repo
+https://api.github.com/repos/Ashish-AVS/Car-Parking-Backend/stats/code_frequency: Commits in each month
+https://api.github.com/repos/Ashish-AVS/Car-Parking-Backend/stats/contributors: His contribution frequency
+*/
+

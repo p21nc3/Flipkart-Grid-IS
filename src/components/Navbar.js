@@ -33,7 +33,7 @@ export default function Navbar() {
                 
             </a>
             {
-              isAuthenticated ? (
+              true ? (
                 <div>
                   <a href="#" className="mr-5 hover:text-gray-900"><Link to="/user-analyser">User Validator</Link></a>
                   <a href="#" className="mr-5 hover:text-gray-900"><Link to="/repo-analyser">Repository Scanner</Link></a>
