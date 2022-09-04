@@ -69,17 +69,17 @@ import axios from 'axios'
     return {finalColor, imgURL}
   }
   export default function Example(props) {
-    const {url, setScore} = props;
+    let {url, setScore} = props;
     console.log("Hi from SlotList", url)
     const [vul, setVul] = useState([]);
     useEffect(() => {
       axios.get(url, {
         headers: {
-          'Accept': 'application vnd.github+json',
-          'Authorization': `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`
+          'Authorization': process.env.REACT_APP_GITHUB_TOKEN
         }
       }).then(function (response) {
         // handle success
+        console.log("This is the response from slotList", response.data)
         const f = extractRecord(response.data)
         setScore(f[1])
         setVul(f[0]);
@@ -88,7 +88,6 @@ import axios from 'axios'
       .catch(function (error) {
         // handle error
         alert(error)
-        console.log(error);
       })
       .then(function () {
         // always executed

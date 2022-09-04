@@ -3,64 +3,34 @@ import React, { useEffect, useState } from 'react'
 import Stats from '../components/Stats'
 import Register from '../components/Register'
 import axios from 'axios'
-// Change here
-// const userStats = [
-//     {
-//         count: 28,
-//         heading: "% of merged PR"
-//     },
-//     {
-//       count: 2,
-//       heading: "Total Stars"
-//   },
-//     {
-//         count: 4,
-//         heading: "Total forks"
-//     },
-//     {
-//         count: 0,
-//         heading: "No. of Orgs"
-//     },
-//     {
-//         count: 5,
-//         heading: "Stars"
-//     },
-//     {
-//         count: 5,
-//         heading: "Contributions"
-//     },  {
-//         count: 5,
-//         heading: "Commit Freq/month"
-//     },  {
-//         count: 5,
-//         heading: "Account age"
-//     }
-// ]
 
-
-
-export default function Analyzer() {
+export default function Analyzer({userName}) {
   const [show, setShow] = React.useState(false);
   const [data, setData] = useState({});
-useEffect(() => {
+  
+  useEffect(() => {
+    const func = (userName) => {
+    console.log(userName)
 
-  const func = (userName) => {
     const averageFrequencyPerWeek = async (userName, repoName) => {
       const finalURI = `https://api.github.com/repos/${userName}/${repoName}/stats/code_frequency`
         let averageFrequency=0;
         axios.get(finalURI).then(res => {
             let data = res.data;
             data.map(repo => {
-              averageFrequency+=repo[1]/data.length;
+              averageFrequency+=(repo[1]/data.length) + (repo[2]/data.length);
               
             })
             setData(prevState => {
               let obj ={...prevState}
-              obj.weeklyFrequency += Math.round(averageFrequency) 
+              obj.weeklyFrequency += Math.round(averageFrequency)/100
               return obj
             })
             return averageFrequency;
-        }).catch(err => console.log(err));
+        }).catch(err => {
+          console.log('CALLLLEDDDD')
+          console.log(err)
+        });
       }
       const userData =  async (userName)  => {
         const uri = `https://api.github.com/users/${userName}`
@@ -69,6 +39,7 @@ useEffect(() => {
           let created_at=0;
           let updated_at;
           axios.get(uri).then(res => {
+            console.log('CALLLLEDDDD')
               let data = res.data;
               followers = data.followers;
               created_at = data.created_at;
@@ -78,7 +49,10 @@ useEffect(() => {
                 return {...prevState,  followers, created_at, updated_at}
               })
               return {followers, created_at, updated_at}
-            }).catch(err => console.log(err));
+            }).catch(err => {
+              console.log('CALLLLEDDDD')
+              console.log(err)
+            });
     }
 
     const repoData = async (userName) => {
@@ -90,6 +64,7 @@ useEffect(() => {
           let weeklyFrequency=0;
           
           axios.get(finalURI).then(res => {
+            console.log('CALLLLEDDDD')
               let data = res.data;
               console.log(data)
               data.map(repo => {
@@ -99,16 +74,17 @@ useEffect(() => {
                   averageFrequencyPerWeek(userName, repo.name)
                   pullsForCurrentRepo(userName, repo.name)
                   pullsForCurrentRepoOpen(userName, repo.name)
-                  
                 })
                 setData(prevState => {
                   return {...prevState,  forks, stars, watchers, weeklyFrequency}
                 })
-          }).catch(err => console.log(err));
+          }).catch(err => {
+            console.log('CALLLLEDDDD')
+            console.log(err)
+          });
 
     }
     const pullsForCurrentRepo = (userName, repoName) => {
-      // https://api.github.com/repos/octocat/Hello-World/pulls
       const uri = `https://api.github.com/repos/${userName}/${repoName}/pulls?state=closed`
       let x = 0;
       axios.get(uri).then(res => {
@@ -134,14 +110,19 @@ useEffect(() => {
 }
     const orgCount = async (userName) => {
       let orgs=0;
+      
         const uri = `https://api.github.com/users/${userName}`
         axios.get(uri+'/orgs').then(res => {
+          console.log('CALLLLEDDDD')
           orgs = res.data.length
           setData(prevState => {
             return {...prevState, orgs}
           })
           return orgs
-        }).catch(err => console.log(err));
+        }).catch(err => {
+          console.log('CALLLLEDDDD')
+          console.log(err)
+        });
     }
       const requiredData = async (userName) => {
         let obj; 
@@ -151,10 +132,10 @@ useEffect(() => {
           // forks_count
         return {obj2, obj, orgs};
       }
-  
+      
       return requiredData(userName)
-  }
-  console.log(func('torvalds'))
+    }
+  console.log(func(userName))
   console.log(data)
   }, [])
   if(show){
@@ -169,6 +150,8 @@ useEffect(() => {
     <div className="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
       <div className="w-full sm:p-4 px-4 mb-6">
         <h1 className="title-font font-medium text-xl mb-2 text-gray-900">There is <span className="text-orange-400"> 3.014% </span>chance that that user is <span className="text-red-400"> Malicious </span> </h1>
+        <h1 className="title-font font-medium text-xl mb-2 text-gray-900">Analysis for {userName}</h1>
+        
         <div className="leading-relaxed">After analysing the parameters of GitHub profile of the user and correlating with the critical values, our <b> Machine Learning models </b> predicts that the following user is <b> malicious </b> 
       and can possibly cause threat. The following graph depicts a clustering model segregating the malicious commits from the non-malicious ones.
       </div>
@@ -183,8 +166,6 @@ useEffect(() => {
     </div>
   </div>
 </section>
-
-
 
     </div>
   )

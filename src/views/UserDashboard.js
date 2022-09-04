@@ -1,12 +1,10 @@
-import { data } from 'autoprefixer'
+
 import React, { useEffect, useState } from 'react'
 import Stats from '../components/Stats'
 import Register from '../components/Register'
 import axios from 'axios'
 
-
-
-export default function UserDashboard({username="Sanchit611"}) {
+export default function UserDashboard({username='Ashish-AVS'}) {
   const [show, setShow] = React.useState(false);
   const [data, setData] = useState({});
 
@@ -64,9 +62,9 @@ useEffect( () => {
                   forks+=repo.forks_count;
                   stars+=repo.stargazers_count
                   watchers+=repo.watchers_count
-                  // averageFrequencyPerWeek(userName, repo.name)
-                  // pullsForCurrentRepo(userName, repo.name)
-                  // pullsForCurrentRepoOpen(userName, repo.name)
+                  averageFrequencyPerWeek(userName, repo.name)
+                  pullsForCurrentRepo(userName, repo.name)
+                  pullsForCurrentRepoOpen(userName, repo.name)
                   
                 })
                 setData(prevState => {

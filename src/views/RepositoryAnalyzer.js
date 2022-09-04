@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } from '@heroicons/react/solid'
 import SlotList from '../components/SlotList'
 import Register from '../components/Register'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import Analyzer from './Analyzer'
 const sortOptions = [
   { name: 'Highest Priority Score', href: '#', current: true },
   { name: 'Lowest Priority Score', href: '#', current: false },
@@ -43,14 +46,34 @@ function classNames(...classes) {
 export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-network/GUI-miner"}) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true)
   const [score, setScore] = useState(100);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [url, setURL] = useState("");
-  if(show){
-    return(
-      <Register lift={setShow} setURL={setURL} kind={"repo"}/>
-    )
-  }
+  const [userName, setUserName] = useState([]);
+   useEffect(() => {
+    if(!show){
+      getContributor(getName(url), getUserName(url))
+    }
+   }, [show])
 
+    if(show)
+      return <Register lift={setShow} setURL={setURL} kind={"repo"}/>
+      
+  const getContributor = async (repoName, name) => {
+    const finalURI = `https://api.github.com/repos/${name}/${repoName}/contributors`
+    await axios.get(finalURI, {
+      headers: {
+        'Authorization' : process.env.REACT_APP_GITHUB_TOKEN
+      }
+    }).then(res => {
+      setUserName(prevState => {
+        const finalData = res.data;
+        let obj = [...prevState]
+        finalData.map(user => obj.push(user.login))
+        console.log("obj", obj)
+        return obj;
+      })
+    }).catch(err => console.log(err));
+  }
   const getSrc = (str) => {
     let slashes = 0;
     let startIndex=-1;
@@ -67,10 +90,26 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
     }
     console.log(`${startIndex}, end Index ${endIndex}`);
     let ans = str.substring(startIndex, endIndex);
-    return `https://github.com/sarveshlanke.png`
-    // return `https://github.com${ans}.png`
+    return `https://github.com${ans}.png`
   }
-
+  const getUserName = (str) => {
+      let slashes = 0;
+      let startIndex=-1;
+      let endIndex=-1;
+      for(let i=0; i<str.length; i++){
+        let ch = str[i];
+        if(ch === '/') slashes++;
+        if(slashes === 4 && startIndex===-1){
+          startIndex = i;
+        }
+        if(slashes === 5 && endIndex===-1){
+          endIndex = i;
+        }
+      }
+      console.log(`${startIndex}, end Index ${endIndex}`);
+      let ans = str.substring(startIndex+1, endIndex);
+      return ans
+  }
   const getName = (str="https://github.com/scala-network/rod") => {
     let slashes = 0;
     let startIndex=-1;
@@ -97,6 +136,7 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
     let ans = str.substring(endIndex+1, end);
     return ans;
   }
+  // getContributor(getName(url), getUserName(url))
   return (
     <div className="bg-white">
       <div style={{marginLeft: "100px"}}>
@@ -331,10 +371,9 @@ export default function RepositoryAnalyzer({repoURL = "https://github.com/scala-
               <div className="lg:col-span-3">
                 {/* Replace with your content */}
                 <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full" >
-                <SlotList url={url} setScore={setScore}/>
-            
+                <SlotList url={url.replace(getUserName(url), "Ashish-AVS")} setScore={setScore}/>
                 </div>
-                {/* /End replace */}
+                {userName && userName.map(user => <Analyzer userName={user}/>)}
               </div>
             </div>
           </section>
