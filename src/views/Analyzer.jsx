@@ -15,7 +15,9 @@ export default function Analyzer({userName}) {
     const averageFrequencyPerWeek = async (userName, repoName) => {
       const finalURI = `https://api.github.com/repos/${userName}/${repoName}/stats/code_frequency`
         let averageFrequency=0;
-        axios.get(finalURI).then(res => {
+        axios.get(finalURI, {headers:{
+          'Authorization': process.env.REACT_APP_GITHUB_TOKEN
+        }}).then(res => {
             let data = res.data;
             data.map(repo => {
               averageFrequency+= Math.round((repo[1]/data.length) + (repo[2]/data.length));
@@ -38,7 +40,9 @@ export default function Analyzer({userName}) {
           let followers=0;
           let created_at=0;
           let updated_at;
-          axios.get(uri).then(res => {
+          axios.get(uri, {headers:{
+            'Authorization': process.env.REACT_APP_GITHUB_TOKEN
+          }}).then(res => {
             console.log('CALLLLEDDDD')
               let data = res.data;
               followers = data.followers;
@@ -63,7 +67,9 @@ export default function Analyzer({userName}) {
           let watchers=0;
           let weeklyFrequency=0;
           
-          axios.get(finalURI).then(res => {
+          axios.get(finalURI, {headers:{
+            'Authorization': process.env.REACT_APP_GITHUB_TOKEN
+          }}).then(res => {
             console.log('CALLLLEDDDD')
               let data = res.data;
               console.log(data)
@@ -87,7 +93,9 @@ export default function Analyzer({userName}) {
     const pullsForCurrentRepo = (userName, repoName) => {
       const uri = `https://api.github.com/repos/${userName}/${repoName}/pulls?state=closed`
       let x = 0;
-      axios.get(uri).then(res => {
+      axios.get(uri, {headers:{
+        'Authorization': process.env.REACT_APP_GITHUB_TOKEN
+      }}).then(res => {
           setData(prevState => {
               let obj ={...prevState, PRMerged: res.data.length}
               console.log(obj.PRMerged)
@@ -100,7 +108,9 @@ export default function Analyzer({userName}) {
     // https://api.github.com/repos/octocat/Hello-World/pulls
     const uri = `https://api.github.com/repos/${userName}/${repoName}/pulls?state=open`
     let x = 0;
-    axios.get(uri).then(res => {
+    axios.get(uri, {headers:{
+      'Authorization': process.env.REACT_APP_GITHUB_TOKEN
+    }}).then(res => {
         setData(prevState => {
             let obj ={...prevState, PROpen: res.data.length}
             console.log(obj.PROpen)
@@ -112,7 +122,9 @@ export default function Analyzer({userName}) {
       let orgs=0;
       
         const uri = `https://api.github.com/users/${userName}`
-        axios.get(uri+'/orgs').then(res => {
+        axios.get(uri, {headers:{
+          'Authorization': process.env.REACT_APP_GITHUB_TOKEN
+        }}+'/orgs').then(res => {
           console.log('CALLLLEDDDD')
           orgs = res.data.length
           setData(prevState => {
